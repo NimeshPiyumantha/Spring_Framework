@@ -5,5 +5,5 @@ package lk.ijse.spring.pojo;
  * @since : 0.1.0
  **/
 public interface GoodGirl {
-        public void chat();
+    void chat();
 }
