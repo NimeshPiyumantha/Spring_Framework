@@ -14,7 +14,7 @@ public class AppInitializer {
         ctx.registerShutdownHook();
 
 
-        //OS environment variables
+/*        //OS environment variables
         Map<String, String> getenv = System.getenv();
         for (String key : getenv.keySet()) {
             String value = getenv.get(key);
@@ -28,6 +28,6 @@ public class AppInitializer {
         for (Object key : properties.keySet()) {
             Object value = properties.get(key);
             System.out.println(key+" : "+value);
-        }
+        }*/
     }
 }
