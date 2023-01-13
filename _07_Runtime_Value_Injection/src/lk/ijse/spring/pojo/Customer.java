@@ -29,6 +29,7 @@ public class Customer {
         for (String name : names3) {
             System.out.print(name + ",");
         }
+        System.out.println();
     }
 
 //    public Customer(){
