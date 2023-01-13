@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Boy {
     @Autowired
     @Qualifier("girlOne")
-    GoodGirl girl;
+    GoodGirl girl;//property injection
 
     public Boy() {
         System.out.println("Boy : Instantiated ");
