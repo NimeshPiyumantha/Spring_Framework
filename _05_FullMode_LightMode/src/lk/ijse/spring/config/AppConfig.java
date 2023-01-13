@@ -12,7 +12,7 @@ public class AppConfig {
 
     //Full Mode - configuration class true bean method ekakin spring bean ekak container ekta waten widiha liyla thinwanm
     //full mode ekedi full satisfied inter-bean dependence ekak thmayi denne object eka
-    @Bean
+/*    @Bean
     public PojoTwo pojoTwo() {
         //inter-bean dependence invocation
         PojoThree pojoThree1 = pojoThree();
@@ -25,5 +25,6 @@ public class AppConfig {
     @Bean
     public PojoThree pojoThree() {
         return new PojoThree();
-    }
+    }*/
+
 }
