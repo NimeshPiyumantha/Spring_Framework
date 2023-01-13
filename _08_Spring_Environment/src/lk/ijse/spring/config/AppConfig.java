@@ -8,5 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan(basePackages = "lk.ijse.spring")
 @PropertySource("classpath:application.properties")
 @PropertySource("classpath:private.properties")
+//@PropertySource("filepath:D:/a/d/private.properties")
 public class AppConfig {
+
 }

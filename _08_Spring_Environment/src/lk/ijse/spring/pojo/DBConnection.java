@@ -18,6 +18,10 @@ public class DBConnection implements InitializingBean {
     @Value("${db.user.password}")
     private String dbPassWord;
 
+    @Value("${user.email}")
+    private String userEmail;
+
+
     public DBConnection(){
         System.out.println("DBConnection:Instantiated");
     }
@@ -29,5 +33,6 @@ public class DBConnection implements InitializingBean {
         System.out.println("====");
         System.out.println(dbUserName);
         System.out.println(dbPassWord);
+        System.out.println(userEmail);
     }
 }
