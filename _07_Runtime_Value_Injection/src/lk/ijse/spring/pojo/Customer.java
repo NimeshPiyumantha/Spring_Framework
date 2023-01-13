@@ -8,16 +8,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class Customer {
 
-    @Autowired
-    public Customer(@Value("IJSE") String name){
-        System.out.println("Customer:Instantiated " +name);
+    @Autowired(required = false)
+    public Customer(@Value("IJSE") String name,@Value("10") int i){
+        System.out.println("Customer:Instantiated " +name+" "+i);
     }
 
-
-    public Customer(@Value("Nimesh,Akila,Pasan") String names[]){
+    @Autowired(required = false)
+    public Customer(@Value("Nimesh,Akila,Pasan") String names1[],@Value("Nimeshi,Akilaa,Pasani") String names2[],@Value("Dog,Cat,Rat") String names3[]) {
         System.out.println("Customer:Instantiated ");
-        for (String name:names) {
-            System.out.println(name);
+        for (String name : names1) {
+            System.out.print(name + ",");
+        }
+        System.out.println();
+
+        for (String name : names2) {
+            System.out.print(name + ",");
+        }
+        System.out.println();
+
+        for (String name : names3) {
+            System.out.print(name + ",");
         }
     }
 
