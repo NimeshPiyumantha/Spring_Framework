@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Boy implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
     @Autowired
-    Girl girl;
+    GoodGirl girl;
 
     public Boy() {
         System.out.println("Boy : Instantiated ");

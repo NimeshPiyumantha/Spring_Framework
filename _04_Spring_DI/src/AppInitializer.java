@@ -13,8 +13,8 @@ public class AppInitializer {
         ctx.refresh();
 
 
-        Boy b1 = ctx.getBean(Boy.class);
-        b1.chatWithGirl();
+        Boy boy = ctx.getBean(Boy.class);
+        boy.chatWithGirl();
 
         ctx.registerShutdownHook();
 
