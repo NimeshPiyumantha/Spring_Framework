@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-@ComponentScan(basePackages = "lk.ijse.spring.pojo")
+@ComponentScan(basePackages = "lk.ijse.spring")
 @Import({ConfigOne.class,ConfigTwo.class})
 //@ImportResource("classpath:abcd.xml")// class path
 //@ImportResource("filepath:abcd.xml")//absolute path
