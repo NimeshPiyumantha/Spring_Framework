@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/five")
 public class FiveController {
-    //Wild Card Mapping
 
     public FiveController() {
         System.out.println("FiveController :Instantiated");
     }
 
+    //Wild Card Mapping - more characters in one segments
     @GetMapping(path = "/path/*/A/B")
     public String callOne() {
         return "Character Mapping Invoke 1";
