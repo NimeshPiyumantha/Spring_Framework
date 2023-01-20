@@ -1,8 +1,11 @@
 package lk.ijse.springMVC.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * @author : Nimesh Piyumantha
@@ -10,10 +13,18 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  **/
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"lk.ijse.springMVC.pojo","lk.ijse.springMVC.controller"})
+@ComponentScan(basePackages = {"lk.ijse.springMVC.controller"})
 public class WebAppConfig {
 
-    public WebAppConfig(){
+    public WebAppConfig() {
         System.out.println("WebAppConfig :Instantiated");
+    }
+
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver resourceViewResolver = new InternalResourceViewResolver();
+        resourceViewResolver.setPrefix("/WEB-INF/views/");
+        resourceViewResolver.setSuffix(".jsp");
+        return resourceViewResolver;
     }
 }
