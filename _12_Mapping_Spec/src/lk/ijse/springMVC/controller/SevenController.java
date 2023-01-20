@@ -1,5 +1,6 @@
 package lk.ijse.springMVC.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,11 +20,13 @@ public class SevenController {
     //Header(meta data) {"content-type":"application/json"}
     //body(context)
 
-    @GetMapping(consumes = {"application/json"})
+   /* @GetMapping(consumes = {"application/json"})*/
+   @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public String testOne(){
         return "Invoked method One";
     }
-    @GetMapping
+    /*@GetMapping(consumes = {"text/html"})*/
+    @GetMapping(consumes = {MediaType.TEXT_HTML_VALUE})
     public String testTwo(){
         return "Invoked method Two";
     }
