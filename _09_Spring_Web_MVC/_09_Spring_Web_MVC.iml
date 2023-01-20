@@ -20,6 +20,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.83" level="application_server_libraries" />
-    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="spring-aop-5.3.9-javadoc" level="project" />
   </component>
 </module>
