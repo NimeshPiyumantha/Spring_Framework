@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="_10_Controller:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/_10_Controller_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="_10_Controller" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="spring-aop-5.3.9-javadoc" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="_10_Controller/web/Web" />
+    </root>
+  </artifact>
+</component>
