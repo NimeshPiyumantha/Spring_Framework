@@ -16,7 +16,7 @@ public class SevenController {
         System.out.println("SevenController :Instantiated");
     }
     // http request has two parts
-    //Header(meta data)
+    //Header(meta data) {"content-type":"application/json"}
     //body(context)
 
     @GetMapping(consumes = {"application/json"})
