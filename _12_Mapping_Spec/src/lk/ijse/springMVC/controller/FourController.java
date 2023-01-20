@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class FourController {
     //Character Mapping
 
+    @GetMapping(path = "/C?DEF")
+    public String callOne(){
+        return "Character Mapping Invoke 1";
+    }
+
     @GetMapping(path = "/C?D?EF")
-    public String call(){
-        return "Character Mapping Invoke";
+    public String callTwo(){
+        return "Character Mapping Invoke 2";
     }
     public FourController() {
         System.out.println("FourController :Instantiated");
