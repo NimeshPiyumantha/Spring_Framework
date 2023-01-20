@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @RestController
-@RequestMapping("/four")
-public class FourController {
-    //Character Mapping
+@RequestMapping("/five")
+public class FiveController {
+    //Wild Card Mapping
 
-    public FourController() {
-        System.out.println("FourController :Instantiated");
+    public FiveController() {
+        System.out.println("FiveController :Instantiated");
     }
 
-    @GetMapping(path = "/C?DEF")
+    @GetMapping(path = "/path/*/A/B")
     public String callOne() {
         return "Character Mapping Invoke 1";
     }
 
-    @GetMapping(path = "/C?D?EF")
+    @GetMapping(path = "/*/mypath/A/C")
     public String callTwo() {
         return "Character Mapping Invoke 2";
     }
