@@ -27,4 +27,10 @@ public class FiveController {
         return "Character Mapping Invoke 2";
     }
 
+    //Duel Wild Card Mapping - 0 or more segments
+    @GetMapping(path = "/**/mypath/A/C")
+    public String callThree() {
+        return "Character Mapping Invoke 3";
+    }
+
 }
