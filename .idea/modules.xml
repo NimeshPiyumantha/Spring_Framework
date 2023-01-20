@@ -12,6 +12,8 @@
       <module fileurl="file://$PROJECT_DIR$/_08_Spring_Environment/_08_SpringEnvironment.iml" filepath="$PROJECT_DIR$/_08_Spring_Environment/_08_SpringEnvironment.iml" />
       <module fileurl="file://$PROJECT_DIR$/_09_Spring_Web_MVC/_09_Spring_Web_MVC.iml" filepath="$PROJECT_DIR$/_09_Spring_Web_MVC/_09_Spring_Web_MVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/_10_Controller/_10_Controller.iml" filepath="$PROJECT_DIR$/_10_Controller/_10_Controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_11_RestController/_11_RestController.iml" filepath="$PROJECT_DIR$/_11_RestController/_11_RestController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_12_Mapping_Spec/_12_Mapping_Spec.iml" filepath="$PROJECT_DIR$/_12_Mapping_Spec/_12_Mapping_Spec.iml" />
     </modules>
   </component>
 </project>
