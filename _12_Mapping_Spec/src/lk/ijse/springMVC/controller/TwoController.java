@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class TwoController {
 
     public TwoController(){
-        System.out.println("CustomerController :Instantiated");
+        System.out.println("TwoController :Instantiated");
     }
     @GetMapping
     public String testOne(){
