@@ -1,0 +1,3 @@
+lk.ijse.pos.config.WebAppConfig=org.springframework.stereotype.Component
+lk.ijse.pos.config.WebRootConfig=org.springframework.stereotype.Component
+lk.ijse.pos.controller.CustomerController=org.springframework.stereotype.Component

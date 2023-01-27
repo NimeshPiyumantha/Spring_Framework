@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="POS_Back_End:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/POS_Back_End_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="POS_Back_End" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="spring-aop-5.3.9-javadoc" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="POS_Back_End/web/Web" />
+    </root>
+  </artifact>
+</component>

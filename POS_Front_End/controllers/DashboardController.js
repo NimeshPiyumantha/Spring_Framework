@@ -3,7 +3,7 @@
  * @since : 0.1.0
  **/
 
-let baseUrl = "http://localhost:8080/back_End/";
+let baseUrl = "http://localhost:8080/POS_Back_End_war_exploded/";
 
 $("#txtCustomerCount").val("00");
 $.ajax({
