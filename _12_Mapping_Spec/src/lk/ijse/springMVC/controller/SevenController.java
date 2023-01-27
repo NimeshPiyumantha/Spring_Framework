@@ -16,18 +16,23 @@ public class SevenController {
     public SevenController() {
         System.out.println("SevenController :Instantiated");
     }
-    // http request has two parts
-    //Header(meta data) {"content-type":"application/json"}
-    //body(context)
+    //How many parts are there in an HTTP request.?
+    // There are two parts
+    //Headers (Meta Data) "Content-Type=application/json"
+    //Body (Context)
 
-   /* @GetMapping(consumes = {"application/json"})*/
-   @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    //We can narrow down a request using the content type
+    // of its body using headers
+    //consume = (this method expect content-type header with the request)
+
+    //    @GetMapping(consumes = {"application/json"})
+    @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public String testOne(){
-        return "Invoked method One";
+        return "Method One Invoked";
     }
-    /*@GetMapping(consumes = {"text/html"})*/
+
     @GetMapping(consumes = {MediaType.TEXT_HTML_VALUE})
     public String testTwo(){
-        return "Invoked method Two";
+        return "Method Two Invoked";
     }
 }
