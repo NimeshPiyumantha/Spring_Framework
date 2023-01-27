@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     @PostMapping
-    public  void saveCustomer(CustomerDTO dto){
+    public  void saveCustomer(@ModelAttribute CustomerDTO dto){ //@ModelAttribute - not Required
         System.out.println(dto.toString());
     }
 }
