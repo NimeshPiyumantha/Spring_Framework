@@ -13,18 +13,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  **/
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"lk.ijse.spring.controller"})
+@ComponentScan(basePackages = {"lk.ijse.spring.controller","lk.ijse.spring.adviser"})
 public class WebAppConfig {
 
     public WebAppConfig() {
         System.out.println("WebAppConfig :Instantiated");
     }
 
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver resourceViewResolver = new InternalResourceViewResolver();
-        resourceViewResolver.setPrefix("/WEB-INF/views/");
-        resourceViewResolver.setSuffix(".jsp");
-        return resourceViewResolver;
-    }
 }
