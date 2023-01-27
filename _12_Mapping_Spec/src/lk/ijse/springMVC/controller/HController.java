@@ -3,19 +3,12 @@ package lk.ijse.springMVC.controller;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author : Nimesh Piyumantha
- * @since : 0.1.0
- **/
 @RestController
-@RequestMapping("/seven")
-public class SevenController {
-    public SevenController() {
-        System.out.println("SevenController :Instantiated");
-    }
+@RequestMapping("/eight")
+public class HController {
+
     //How many parts are there in an HTTP request.?
     // There are two parts
     //Headers (Meta Data) "Content-Type=application/json"
@@ -25,7 +18,7 @@ public class SevenController {
     // of its body using headers
     //consume = (this method expect content-type header with the request)
 
-    //    @GetMapping(consumes = {"application/json"})
+//    @GetMapping(consumes = {"application/json"})
     @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public String testOne(){
         return "Method One Invoked";
