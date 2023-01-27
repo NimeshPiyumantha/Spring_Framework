@@ -1,7 +1,7 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.util.ResponseUtil;
 import lk.ijse.spring.dto.ItemDTO;
-import lk.ijse.spring.util.utilAlert;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,46 +17,43 @@ import java.util.ArrayList;
 @RequestMapping("/item")
 public class ItemController {
 
-    ArrayList<ItemDTO> itemDTOS = new ArrayList<>();
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public utilAlert saveItem(@ModelAttribute ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
-        if(dto.getCode().equals("I00-001")){
+    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
+        if (dto.getCode().equals("I00-001")) {
             throw new Exception("Worng Id......!");
         }
-        itemDTOS.add(dto);
-        System.out.println(dto.toString());
-        return new utilAlert("200", "Successfully Add");
+        return new ResponseUtil("OK", "Successfully Registered.!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping
-    public utilAlert getItem() { //@ModelAttribute - not Required annotation
-        System.out.println(itemDTOS);
-        return new utilAlert("200", "Successfully Get All");
+    public ResponseUtil getItem() { //@ModelAttribute - not Required annotation
+        ArrayList<ItemDTO> arrayList = new ArrayList<>();
+        arrayList.add(new ItemDTO("I001", "Lux", 100, 1000));
+        arrayList.add(new ItemDTO("I002", "Signal", 200, 2000));
+        arrayList.add(new ItemDTO("I003", "Clougard", 300, 3000));
+        arrayList.add(new ItemDTO("I004", "Supiriwiki", 400, 4000));
+        arrayList.add(new ItemDTO("I005", "Danthalepa", 500, 5000));
+        return new ResponseUtil("OK", "Successfully Loaded. :", arrayList);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public utilAlert updateItem(@RequestBody ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
-        if(dto.getCode().equals("I00-001")){
+    public ResponseUtil updateItem(@RequestBody ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
+        if (dto.getCode().equals("I00-001")) {
             throw new Exception("Please Enter Valid Id......!");
         }
-        itemDTOS.get(0).setCode(dto.getCode());
-        System.out.println(dto);
-        return new utilAlert("200", "Successfully Update");
+        return new ResponseUtil("OK", "Successfully Updated. :" + dto.getCode(), null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
-    public utilAlert deleteItem(@RequestBody ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
-        if(dto.getCode().equals("I00-001")){
+    public ResponseUtil deleteItem(@RequestBody ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
+        if (dto.getCode().equals("I00-001")) {
             throw new Exception("Please Enter Valid Id......!");
         }
-        itemDTOS.remove(dto);
-        System.out.println(dto.toString());
-        return new utilAlert("200", "Successfully Delete");
+        return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getCode(), null);
     }
 
 }

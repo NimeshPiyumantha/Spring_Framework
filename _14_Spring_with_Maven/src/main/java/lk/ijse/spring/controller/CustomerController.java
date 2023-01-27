@@ -1,7 +1,7 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.util.ResponseUtil;
 import lk.ijse.spring.dto.CustomerDTO;
-import lk.ijse.spring.util.utilAlert;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,36 +17,43 @@ import java.util.ArrayList;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    ArrayList<CustomerDTO> customerDTOS = new ArrayList<>();
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public utilAlert saveCustomer(@ModelAttribute CustomerDTO dto) { //@ModelAttribute - not Required annotation
-        customerDTOS.add(dto);
-        System.out.println(dto.toString());
-        return new utilAlert("200","Successfully Add");
+    public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto) { //@ModelAttribute - not Required annotation
+        if (dto.getId().equals("C001")) {
+            throw new RuntimeException("Customer Already Exist. Please enter another id..!");
+        }
+        return new ResponseUtil("OK", "Successfully Registered.!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping
-    public utilAlert getCustomer() { //@ModelAttribute - not Required annotation
-        System.out.println(customerDTOS);
-        return new utilAlert("200","Successfully Get All");
+    public ResponseUtil getCustomer() { //@ModelAttribute - not Required annotation
+        ArrayList<CustomerDTO> arrayList = new ArrayList<>();
+        arrayList.add(new CustomerDTO("C001", "Ushan", "Galle", 1000));
+        arrayList.add(new CustomerDTO("C002", "Ashan", "Galle", 2000));
+        arrayList.add(new CustomerDTO("C003", "Malshan", "Panadura", 3000));
+        arrayList.add(new CustomerDTO("C004", "Kalshan", "Kaluthara", 4000));
+        arrayList.add(new CustomerDTO("C005", "Rashan", "Panaudra", 5000));
+        return new ResponseUtil("OK", "Successfully Loaded. :", arrayList);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public utilAlert updateCustomer(@RequestBody CustomerDTO dto) { //@ModelAttribute - not Required annotation
-        customerDTOS.get(0).setId(dto.getId());
-        System.out.println(dto.toString());
-        return new utilAlert("200","Successfully Update");
+    public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto) { //@ModelAttribute - not Required annotation
+        if (dto.getId().equals("C001")) {
+            throw new RuntimeException("Wrong ID..No Such a Customer to Update..!");
+        }
+        return new ResponseUtil("OK", "Successfully Updated. :" + dto.getId(), null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
-    public utilAlert deleteCustomer(@RequestBody CustomerDTO dto) { //@ModelAttribute - not Required annotation
-        customerDTOS.remove(dto);
-        System.out.println(dto.toString());
-        return new utilAlert("200","Successfully Delete");
+    public ResponseUtil deleteCustomer(@RequestBody CustomerDTO dto) { //@ModelAttribute - not Required annotation
+        if (dto.getId().equals("C001")) {
+            throw new RuntimeException("Wrong ID..Please enter valid id..!");
+        }
+        return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getId(), null);
     }
 
 }
