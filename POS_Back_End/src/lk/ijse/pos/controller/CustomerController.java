@@ -19,6 +19,8 @@ public class CustomerController {
         System.out.println(dto.toString());
     }
 
+
+    //converter - request,response ekakdi ena data tika MIME wlata data convert krna eka.
     @PutMapping
     public ArrayList<CustomerDTO> updateCustomer(@RequestBody CustomerDTO dto) { //@RequestBody - Required annotation
         ArrayList<CustomerDTO> customerDTOS= new ArrayList<>();
