@@ -1,5 +1,6 @@
-package lk.ijse.spring.dto;
+package lk.ijse.spring.util;
 
+import lk.ijse.spring.dto.CustomerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

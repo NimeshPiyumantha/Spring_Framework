@@ -1,6 +1,6 @@
 package lk.ijse.spring.controller;
 
-import lk.ijse.spring.dto.Alert;
+import lk.ijse.spring.util.Alert;
 import lk.ijse.spring.dto.CustomerDTO;
 import org.springframework.web.bind.annotation.*;
 
