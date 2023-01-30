@@ -20,7 +20,7 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto) { //@ModelAttribute - not Required annotation
-        if (dto.getId().equals("C001")) {
+        if (dto.getId().equals("C00-001")) {
             throw new RuntimeException("Customer Already Exist. Please enter another id..!");
         }
         return new ResponseUtil("OK", "Successfully Registered.!", null);
@@ -41,7 +41,7 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto) { //@ModelAttribute - not Required annotation
-        if (dto.getId().equals("C001")) {
+        if (dto.getId().equals("C00-001")) {
             throw new RuntimeException("Wrong ID..No Such a Customer to Update..!");
         }
         return new ResponseUtil("OK", "Successfully Updated. :" + dto.getId(), null);
@@ -50,7 +50,7 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
     public ResponseUtil deleteCustomer(@RequestBody CustomerDTO dto) { //@ModelAttribute - not Required annotation
-        if (dto.getId().equals("C001")) {
+        if (dto.getId().equals("C00-001")) {
             throw new RuntimeException("Wrong ID..Please enter valid id..!");
         }
         return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getId(), null);

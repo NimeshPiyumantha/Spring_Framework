@@ -1,7 +1,7 @@
 package lk.ijse.spring.controller;
 
-import lk.ijse.spring.util.ResponseUtil;
 import lk.ijse.spring.dto.ItemDTO;
+import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +19,9 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
+    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) { //@ModelAttribute - not Required annotation
         if (dto.getCode().equals("I00-001")) {
-            throw new Exception("Worng Id......!");
+            throw new RuntimeException("Item Already Exist. Please enter another id..!");
         }
         return new ResponseUtil("OK", "Successfully Registered.!", null);
     }
@@ -40,18 +40,18 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public ResponseUtil updateItem(@RequestBody ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
+    public ResponseUtil updateItem(@RequestBody ItemDTO dto) { //@ModelAttribute - not Required annotation
         if (dto.getCode().equals("I00-001")) {
-            throw new Exception("Please Enter Valid Id......!");
+            throw new RuntimeException("Wrong ID..No Such a Item to Update..!");
         }
         return new ResponseUtil("OK", "Successfully Updated. :" + dto.getCode(), null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
-    public ResponseUtil deleteItem(@RequestBody ItemDTO dto) throws Exception { //@ModelAttribute - not Required annotation
+    public ResponseUtil deleteItem(@RequestBody ItemDTO dto) { //@ModelAttribute - not Required annotation
         if (dto.getCode().equals("I00-001")) {
-            throw new Exception("Please Enter Valid Id......!");
+            throw new RuntimeException("Wrong ID..Please enter valid id..!");
         }
         return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getCode(), null);
     }
