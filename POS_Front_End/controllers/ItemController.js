@@ -19,7 +19,7 @@ $("#btnDeleteItem").attr('disabled', true);
 function generateItemID() {
     $("#txtItemID").val("I00-001");
     $.ajax({
-        url: baseUrl + "item?option=ItemIdGenerate",
+        url: baseUrl + "item/ItemIdGenerate",
         method: "GET",
         contentType: "application/json",
         dataType: "json",
@@ -83,7 +83,7 @@ function setTextFieldValues(code, description, qty, price) {
 function loadAllItems() {
     $("#ItemTable").empty();
     $.ajax({
-        url: baseUrl + "item?option=loadAllItem",
+        url: baseUrl + "item/loadAllItem",
         method: "GET",
         dataType: "json",
         success: function (res) {
@@ -137,7 +137,7 @@ $("#ItemIdSearch").on("keypress", function (event) {
         var search = $("#ItemIdSearch").val();
         $("#ItemTable").empty();
         $.ajax({
-            url: baseUrl + "item?code=" + search + "&option=searchItemCode",
+            url: baseUrl + "item/searchItemCode/?code="+ search,
             method: "GET",
             contentType: "application/json",
             dataType: "json",

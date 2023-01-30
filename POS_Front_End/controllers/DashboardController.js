@@ -7,7 +7,7 @@ let baseUrl = "http://localhost:8080/app/";
 
 $("#txtCustomerCount").val("00");
 $.ajax({
-    url: baseUrl + "customer?option=CustomerCount",
+    url: baseUrl + "customer/CustomerCount",
     method: "GET",
     contentType: "application/json",
     dataType: "json",
@@ -23,7 +23,7 @@ $.ajax({
 
 $("#txtItemsCount").val("00");
 $.ajax({
-    url: baseUrl + "item?option=itemCount",
+    url: baseUrl + "item/itemCount",
     method: "GET",
     contentType: "application/json",
     dataType: "json",
@@ -39,7 +39,7 @@ $.ajax({
 
 $("#txtOrderCount").val("00");
 $.ajax({
-    url: baseUrl + "orders?option=ordersCount",
+    url: baseUrl + "orders/ordersCount",
     method: "GET",
     contentType: "application/json",
     dataType: "json",

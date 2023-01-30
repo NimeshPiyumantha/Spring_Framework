@@ -19,7 +19,7 @@ $("#btnAddToCart").attr('disabled', true);
 function generateOrderID() {
     $("#orderId").val("ODI-001");
     $.ajax({
-        url: baseUrl + "orders?option=OrderIdGenerate",
+        url: baseUrl + "orders/OrderIdGenerate",
         method: "GET",
         contentType: "application/json",
         dataType: "json",
@@ -47,7 +47,7 @@ function generateOrderID() {
  * */
 $("#cmbCustomerId").empty();
 $.ajax({
-    url: baseUrl + "customer?option=loadAllCustomer",
+    url: baseUrl + "customer/loadAllCustomer",
     method: "GET",
     dataType: "json",
     success: function (res) {
@@ -73,7 +73,7 @@ $.ajax({
 $("#cmbCustomerId").click(function () {
     var search = $("#cmbCustomerId").val();
     $.ajax({
-        url: baseUrl + "customer?id=" + search + "&option=searchCusId",
+        url: baseUrl + "customer/searchCusId/?id="+ search,
         method: "GET",
         contentType: "application/json",
         dataType: "json",
@@ -97,7 +97,7 @@ $("#cmbCustomerId").click(function () {
  * */
 $("#cmbItemCode").empty();
 $.ajax({
-    url: baseUrl + "item?option=loadAllItem",
+    url: baseUrl + "item/loadAllItem",
     method: "GET",
     dataType: "json",
     success: function (res) {
@@ -118,7 +118,7 @@ $.ajax({
 $("#cmbItemCode").click(function () {
     var search = $("#cmbItemCode").val();
     $.ajax({
-        url: baseUrl + "item?code=" + search + "&option=searchItemCode",
+        url: baseUrl + "item/searchItemCode/?code="+ search,
         method: "GET",
         contentType: "application/json",
         dataType: "json",
