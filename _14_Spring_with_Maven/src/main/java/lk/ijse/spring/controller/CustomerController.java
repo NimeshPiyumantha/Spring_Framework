@@ -19,7 +19,6 @@ public class CustomerController {
 
     ArrayList<CustomerDTO> arrayList = new ArrayList<>();
 
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto) { //@ModelAttribute - not Required annotation
