@@ -79,6 +79,11 @@ public class ItemController {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/loadAllItem")
     public ResponseUtil loadAllItem() {
+        arrayList.add(new ItemDTO("I001","Lux",100,1000));
+        arrayList.add(new ItemDTO("I002","Signal",200,2000));
+        arrayList.add(new ItemDTO("I003","Clougard",300,3000));
+        arrayList.add(new ItemDTO("I004","Supiriwiki",400,4000));
+        arrayList.add(new ItemDTO("I005","Danthalepa",500,5000));
         return new ResponseUtil("OK", "Successfully Loaded. :", arrayList);
     }
 

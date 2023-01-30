@@ -78,6 +78,12 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/loadAllCustomer")
     public ResponseUtil loadAllCustomer() {
+
+        arrayList.add(new CustomerDTO("C001","Ushan","Galle",1000));
+        arrayList.add(new CustomerDTO("C002","Ashan","Galle",2000));
+        arrayList.add(new CustomerDTO("C003","Malshan","Panadura",3000));
+        arrayList.add(new CustomerDTO("C004","Kalshan","Kaluthara",4000));
+        arrayList.add(new CustomerDTO("C005","Rashan","Panaudra",5000));
         return new ResponseUtil("OK", "Successfully Loaded. :", arrayList);
     }
 

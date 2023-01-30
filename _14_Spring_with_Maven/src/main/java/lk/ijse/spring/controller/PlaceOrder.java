@@ -23,14 +23,7 @@ public class PlaceOrder {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseUtil saveOrder(@RequestBody OrderDTO dto, @RequestBody OrderDetailDTO dto2) { //@ModelAttribute - not Required annotation
-        if (dto.getId().equals("ODI-000")) {
-            throw new RuntimeException("Order Already Exist. Please enter another id..!");
-        }
-        for (OrderDTO orderDTO : arrayList) {
-            if (orderDTO.getId().equals(dto.getId())) {
-                throw new RuntimeException("Order Already Exist. Please enter another id..!");
-            }
-        }
+
         arrayList.add(dto);
         arrayList2.add(dto2);
         return new ResponseUtil("OK", "Successfully Place Order.!", null);
