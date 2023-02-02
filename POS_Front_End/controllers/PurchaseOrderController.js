@@ -369,10 +369,10 @@ $("#btnPurchase").click(function () {
     var date = $("#orderDate").val();
 
     var orderOb = {
-        "orderId": orderId,
+        "id": orderId,
         "date": date,
         "customerId": customerId,
-        "detail": orderDetails
+        "orderDetails": orderDetails
     }
     console.log(orderOb)
     console.log(orderDetails)

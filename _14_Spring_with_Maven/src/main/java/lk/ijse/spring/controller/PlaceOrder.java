@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Nimesh Piyumantha
@@ -22,11 +23,16 @@ public class PlaceOrder {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil saveOrder(@RequestBody OrderDTO dto, @RequestBody OrderDetailDTO dto2) { //@ModelAttribute - not Required annotation
+    public ResponseUtil placeOrder(@RequestBody OrderDTO dto) { //@ModelAttribute - not Required annotation
 
+        List<OrderDetailDTO> orderDetails = dto.getOrderDetails();
+        arrayList2.addAll(orderDetails);
         arrayList.add(dto);
-        arrayList2.add(dto2);
-        return new ResponseUtil("OK", "Successfully Place Order.!", null);
+
+        System.out.println(arrayList);
+        System.out.println(arrayList2);
+
+        return new ResponseUtil("OK", "Successfully Place Order.!", dto);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -44,8 +50,8 @@ public class PlaceOrder {
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/OrderIdGenerate")
-    public  @ResponseBody String  CustomerIdGenerate() {
-        String iCode= arrayList.get(arrayList.size() - 1).getId();
+    public @ResponseBody String CustomerIdGenerate() {
+        String iCode = arrayList.get(arrayList.size() - 1).getId();
         System.out.println(iCode);
         return iCode;
     }

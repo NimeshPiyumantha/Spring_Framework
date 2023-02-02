@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OrderDetailDTO {
     private String orderId;
-    private String itemCode;
+    private String itemId;
     private int qty;
-    private double total;
+    private double unitPrice;
 
 }

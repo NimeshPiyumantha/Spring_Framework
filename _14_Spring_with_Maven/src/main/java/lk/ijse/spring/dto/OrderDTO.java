@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author : Nimesh Piyumantha
  * @since : 0.1.0
@@ -15,5 +17,6 @@ public class OrderDTO {
     private String id;
     private String date;
     private String customerId;
+    private List<OrderDetailDTO> orderDetails;
 
 }
