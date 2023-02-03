@@ -357,8 +357,8 @@ $("#btnPurchase").click(function () {
     var orderDetails = [];
     for (let i = 0; i < $("#tblAddToCart tr").length; i++) {
         var detailOb = {
-            orderId: $("#orderId").val(),
-            itemId: $("#tblAddToCart tr").children(':nth-child(1)')[i].innerText,
+            oid: $("#orderId").val(),
+            itemCode: $("#tblAddToCart tr").children(':nth-child(1)')[i].innerText,
             qty: $("#tblAddToCart tr").children(':nth-child(4)')[i].innerText,
             unitPrice: $("#tblAddToCart tr").children(':nth-child(5)')[i].innerText
         }
@@ -369,9 +369,9 @@ $("#btnPurchase").click(function () {
     var date = $("#orderDate").val();
 
     var orderOb = {
-        "id": orderId,
+        "oid": orderId,
         "date": date,
-        "customerId": customerId,
+        "cusID": customerId,
         "orderDetails": orderDetails
     }
     console.log(orderOb)

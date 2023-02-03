@@ -23,7 +23,7 @@ public class Orders {
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "customerID",referencedColumnName = "id",nullable = false)
     private Customer cusID;
-    private LocalDate date;
+    private String date;
 
     //Inverse
     @OneToMany(mappedBy = "orders",cascade = CascadeType.ALL)

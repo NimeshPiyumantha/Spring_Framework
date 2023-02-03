@@ -14,9 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDTO {
-    private String orderId;
+    private String oid;
+    private String cusID;
     private String date;
-    private String customerId;
     private List<OrderDetailDTO> orderDetails;
 
 }
