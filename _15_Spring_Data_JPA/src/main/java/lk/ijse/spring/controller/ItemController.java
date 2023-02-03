@@ -32,7 +32,7 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) { //@ModelAttribute - not Required annotation
+    public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) {
         if (repo.existsById(dto.getCode())) {
             throw new RuntimeException("Item Already Exist. Please enter another id..!");
         }
@@ -42,7 +42,7 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public ResponseUtil updateItem(@RequestBody ItemDTO dto) { //@ModelAttribute - not Required annotation
+    public ResponseUtil updateItem(@RequestBody ItemDTO dto) {
         if (!repo.existsById(dto.getCode())) {
             throw new RuntimeException("Item Not Exist. Please enter Valid id..!");
         }
@@ -52,7 +52,7 @@ public class ItemController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
-    public ResponseUtil deleteItem(@RequestBody ItemDTO dto) { //@ModelAttribute - not Required annotation
+    public ResponseUtil deleteItem(@RequestBody ItemDTO dto) {
         if (!repo.existsById(dto.getCode())) {
             throw new RuntimeException("Wrong ID..Please enter valid id..!");
         }
