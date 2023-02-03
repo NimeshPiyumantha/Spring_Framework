@@ -1,7 +1,10 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.ItemDTO;
+import lk.ijse.spring.repo.CustomerRepo;
+import lk.ijse.spring.repo.ItemRepo;
 import lk.ijse.spring.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +19,8 @@ import java.util.ArrayList;
 @CrossOrigin
 @RequestMapping("/item")
 public class ItemController {
-
+    @Autowired
+    private ItemRepo repo;
     ArrayList<ItemDTO> arrayList = new ArrayList<>();
 
     @ResponseStatus(HttpStatus.CREATED)
