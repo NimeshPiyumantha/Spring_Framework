@@ -23,7 +23,7 @@ import javax.sql.DataSource;
  * @since : 0.1.0
  **/
 @Configuration
-@EnableTransactionManagement
+@EnableTransactionManagement //AOP Usage
 @EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, ItemRepo.class})
 public class JPAConfig {
     @Bean
