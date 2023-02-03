@@ -13,13 +13,12 @@ import java.util.List;
  * @author : Nimesh Piyumantha
  * @since : 0.1.0
  **/
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Order {
-    @Id
     private String id;
     private String date;
     private String customerId;
