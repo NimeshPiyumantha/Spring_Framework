@@ -14,11 +14,11 @@ function loadAllOrders() {
             console.log(res);
 
             for (let i of res.data) {
-                let id = i.id;
+                let oid = i.oid;
                 let date = i.date;
-                let customerId = i.customerId;
+                let cusID = i.cusID;
 
-                let row = "<tr><td>" + id + "</td><td>" + date + "</td><td>" + customerId + "</td></tr>";
+                let row = "<tr><td>" + oid + "</td><td>" + date + "</td><td>" + cusID + "</td></tr>";
                 $("#tblOrder").append(row);
             }
             console.log(res.message);
@@ -37,12 +37,12 @@ function loadAllOrderDetails() {
             console.log(res);
 
             for (let i of res.data) {
-                let orderId = i.orderId;
-                let itemId = i.itemId;
+                let oid = i.oid;
+                let itemCode = i.itemCode;
                 let qty = i.qty;
                 let unitPrice = i.unitPrice;
 
-                let row = "<tr><td>" + orderId + "</td><td>" + itemId + "</td><td>" + qty + "</td><td>" + unitPrice + "</td></tr>";
+                let row = "<tr><td>" + oid + "</td><td>" + itemCode + "</td><td>" + qty + "</td><td>" + unitPrice + "</td></tr>";
                 $("#tblOrderDetails").append(row);
             }
             console.log(res.message);

@@ -1,18 +1,23 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.ItemDTO;
 import lk.ijse.spring.dto.OrderDTO;
 import lk.ijse.spring.dto.OrderDetailDTO;
+import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.entity.Item;
+import lk.ijse.spring.entity.OrderDetails;
 import lk.ijse.spring.entity.Orders;
 import lk.ijse.spring.repo.ItemRepo;
+import lk.ijse.spring.repo.OrderDetailsRepo;
 import lk.ijse.spring.repo.PlaceOrderRepo;
 import lk.ijse.spring.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author : Nimesh Piyumantha
@@ -25,6 +30,9 @@ public class PlaceOrder {
 
     @Autowired
     private PlaceOrderRepo repo;
+
+    @Autowired
+    private OrderDetailsRepo orRepo;
     @Autowired
     private ItemRepo itemRepo;
 
@@ -34,32 +42,36 @@ public class PlaceOrder {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseUtil placeOrder(@RequestBody OrderDTO dto) {
+        Orders ord = mapper.map(dto, Orders.class);
+        if (repo.existsById(ord.getOid())) {
+            throw new RuntimeException("Order"+ord.getOid()+" Already added.!");
+        }
+        repo.save(ord);
 
-       /* List<OrderDetailDTO> orderDetails = dto.getOrderDetails();
-        arrayList2.addAll(orderDetails);
-        arrayList.add(dto);
-
-        System.out.println(arrayList);
-        System.out.println(arrayList2);*/
-        System.out.println("-------------------");
-        System.out.println(dto.toString());
-        System.out.println(mapper.map(dto,Orders.class));
-        repo.save(mapper.map(dto, Orders.class));
-
-        return new ResponseUtil("OK", "Successfully Place Order.!", dto);
+        //Update Item Qty
+        for (OrderDetails od : ord.getOrderDetails()) {
+            Item item = itemRepo.findById(od.getItemCode()).get();
+            item.setQty(item.getQty()-od.getQty());
+            itemRepo.save(item);
+        }
+        return new ResponseUtil("Ok","Successfully Purchased.!",null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/LoadOrders")
     public ResponseUtil LoadOrders() {
-        return new ResponseUtil("OK", "Successfully Loaded. :", null);
+        ArrayList<OrderDTO> allList= mapper.map(repo.findAll(),new TypeToken<ArrayList<OrderDTO>>(){}.getType());
+        System.out.println(allList);
+        return new ResponseUtil("OK", "Successfully Loaded. :", allList);
     }
 
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/LoadOrderDetails")
     public ResponseUtil LoadOrderDetails() {
-        return new ResponseUtil("OK", "Successfully Loaded. :", null);
+        ArrayList <OrderDetailDTO> allList2= mapper.map(orRepo.findAll(),new TypeToken<ArrayList<OrderDetailDTO>>(){}.getType());
+        System.out.println(allList2);
+        return new ResponseUtil("OK", "Successfully Loaded. :", allList2);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

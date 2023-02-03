@@ -394,14 +394,6 @@ $("#btnPurchase").click(function () {
         }
     });
 
-    $.ajax({
-        url: baseUrl + "orders",
-        method: "PUT",
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify(orderOb)
-    });
-
     clearDetails();
     $("#tblAddToCart").empty();
     $("#btnPurchase").attr('disabled', true);
