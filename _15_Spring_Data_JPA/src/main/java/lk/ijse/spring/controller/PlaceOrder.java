@@ -1,9 +1,7 @@
 package lk.ijse.spring.controller;
 
-import lk.ijse.spring.dto.ItemDTO;
-import lk.ijse.spring.dto.OrderDTO;
-import lk.ijse.spring.dto.OrderDetailDTO;
-import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.dto.OrdersDTO;
+import lk.ijse.spring.dto.OrderDetailsDTO;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.entity.OrderDetails;
 import lk.ijse.spring.entity.Orders;
@@ -41,26 +39,27 @@ public class PlaceOrder {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil placeOrder(@RequestBody OrderDTO dto) {
+    public ResponseUtil placeOrder(@RequestBody OrdersDTO dto) {
         Orders ord = mapper.map(dto, Orders.class);
         if (repo.existsById(ord.getOid())) {
-            throw new RuntimeException("Order"+ord.getOid()+" Already added.!");
+            throw new RuntimeException("Order" + ord.getOid() + " Already added.!");
         }
         repo.save(ord);
 
         //Update Item Qty
         for (OrderDetails od : ord.getOrderDetails()) {
             Item item = itemRepo.findById(od.getItemCode()).get();
-            item.setQty(item.getQty()-od.getQty());
+            item.setQty(item.getQty() - od.getQty());
             itemRepo.save(item);
         }
-        return new ResponseUtil("Ok","Successfully Purchased.!",null);
+        return new ResponseUtil("Ok", "Successfully Purchased.!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/LoadOrders")
     public ResponseUtil LoadOrders() {
-        ArrayList<OrderDTO> allList= mapper.map(repo.findAll(),new TypeToken<ArrayList<OrderDTO>>(){}.getType());
+        ArrayList<OrdersDTO> allList = mapper.map(repo.findAll(), new TypeToken<ArrayList<OrdersDTO>>() {
+        }.getType());
         System.out.println(allList);
         return new ResponseUtil("OK", "Successfully Loaded. :", allList);
     }
@@ -69,7 +68,8 @@ public class PlaceOrder {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/LoadOrderDetails")
     public ResponseUtil LoadOrderDetails() {
-        ArrayList <OrderDetailDTO> allList2= mapper.map(orRepo.findAll(),new TypeToken<ArrayList<OrderDetailDTO>>(){}.getType());
+        ArrayList<OrderDetailsDTO> allList2 = mapper.map(orRepo.findAll(), new TypeToken<ArrayList<OrderDetailsDTO>>() {
+        }.getType());
         System.out.println(allList2);
         return new ResponseUtil("OK", "Successfully Loaded. :", allList2);
     }
@@ -77,7 +77,7 @@ public class PlaceOrder {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/OrderIdGenerate")
     public @ResponseBody String OrderIdGenerate() {
-        String orderId =repo.getLastIndex();
+        String orderId = repo.getLastIndex();
         System.out.println(orderId);
         return orderId;
     }
