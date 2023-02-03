@@ -1,9 +1,14 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.dto.ItemDTO;
+import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.repo.ItemRepo;
 import lk.ijse.spring.util.ResponseUtil;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,80 +26,62 @@ import java.util.ArrayList;
 public class ItemController {
     @Autowired
     private ItemRepo repo;
-    ArrayList<ItemDTO> arrayList = new ArrayList<>();
+
+    @Autowired
+    private ModelMapper mapper;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) { //@ModelAttribute - not Required annotation
-        if (dto.getCode().equals("I00-001")) {
+        if (repo.existsById(dto.getCode())) {
             throw new RuntimeException("Item Already Exist. Please enter another id..!");
         }
-        for (ItemDTO itemDTO : arrayList) {
-            if (itemDTO.getCode().equals(dto.getCode())) {
-                throw new RuntimeException("Item Already Exist. Please enter another id..!");
-            }
-        }
-        arrayList.add(dto);
+        repo.save(mapper.map(dto, Item.class));
         return new ResponseUtil("OK", "Successfully Registered.!", null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
     public ResponseUtil updateItem(@RequestBody ItemDTO dto) { //@ModelAttribute - not Required annotation
-        if (dto.getCode().equals("I00-001")) {
-            throw new RuntimeException("Wrong ID..No Such a Item to Update..!");
+        if (!repo.existsById(dto.getCode())) {
+            throw new RuntimeException("Item Not Exist. Please enter Valid id..!");
         }
-        for (ItemDTO itemDTO : arrayList) {
-            if (itemDTO.getCode().equals(dto.getCode())) {
-                itemDTO.setDescription(dto.getDescription());
-                itemDTO.setQty(dto.getQty());
-                itemDTO.setUnitPrice(dto.getUnitPrice());
-            }
-        }
+        repo.save(mapper.map(dto, Item.class));
         return new ResponseUtil("OK", "Successfully Updated. :" + dto.getCode(), null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
     public ResponseUtil deleteItem(@RequestBody ItemDTO dto) { //@ModelAttribute - not Required annotation
-        if (dto.getCode().equals("I00-001")) {
+        if (!repo.existsById(dto.getCode())) {
             throw new RuntimeException("Wrong ID..Please enter valid id..!");
         }
-        for(int i = 0 ; i < arrayList.size() ; i++){
-            if(dto.getCode().equalsIgnoreCase(arrayList.get(i).getCode())){
-                arrayList.remove(i);
-            }
-        }
+        repo.delete(mapper.map(dto, Item.class));
         return new ResponseUtil("OK", "Successfully Deleted. :" + dto.getCode(), null);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/searchItemCode",params = {"code"})
+    @GetMapping(path = "/searchItemCode", params = {"code"})
     public ItemDTO searchItemCode(String code) {
-        for (ItemDTO itemDTO : arrayList) {
-            if (itemDTO.getCode().equals(code)) {
-                return itemDTO;
-            }
+        if (!repo.existsById(code)) {
+            throw new RuntimeException("Wrong ID. Please enter Valid id..!");
         }
-        return null;
+        Item item = repo.findById(code).get();
+        return mapper.map(item, ItemDTO.class);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/loadAllItem")
     public ResponseUtil loadAllItem() {
-        arrayList.add(new ItemDTO("I001","Lux",100,1000));
-        arrayList.add(new ItemDTO("I002","Signal",200,2000));
-        arrayList.add(new ItemDTO("I003","Clougard",300,3000));
-        arrayList.add(new ItemDTO("I004","Supiriwiki",400,4000));
-        arrayList.add(new ItemDTO("I005","Danthalepa",500,5000));
-        return new ResponseUtil("OK", "Successfully Loaded. :", arrayList);
+        ArrayList <ItemDTO> allList= mapper.map(repo.findAll(),new TypeToken<ArrayList<Item>>(){}.getType());
+        return new ResponseUtil("OK", "Successfully Loaded. :",allList);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/ItemIdGenerate")
-    public  @ResponseBody String  CustomerIdGenerate() {
-        String iCode= arrayList.get(arrayList.size() - 1).getCode();
-        System.out.println(iCode);
-        return iCode;
+    public @ResponseBody String ItemIdGenerate() {
+        String code =repo.getLastIndex();
+        System.out.println(code);
+        return code;
     }
 }
