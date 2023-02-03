@@ -51,7 +51,7 @@ public class PlaceOrder {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/OrderIdGenerate")
     public @ResponseBody String CustomerIdGenerate() {
-        String iCode = arrayList.get(arrayList.size() - 1).getId();
+        String iCode = arrayList.get(arrayList.size() - 1).getOrderId();
         System.out.println(iCode);
         return iCode;
     }
