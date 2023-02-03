@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/_14_Spring_with_Maven" />
+    <file type="web" url="file://$PROJECT_DIR$/_15_Spring_Data_JPA" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="F:/newFolder" />
@@ -11,6 +12,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/_14_Spring_with_Maven/pom.xml" />
+        <option value="$PROJECT_DIR$/_15_Spring_Data_JPA/pom.xml" />
       </list>
     </option>
   </component>

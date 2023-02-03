@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/_14_Spring_with_Maven/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_14_Spring_with_Maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_15_Spring_Data_JPA/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_15_Spring_Data_JPA/src/main/resources" charset="UTF-8" />
   </component>
 </project>

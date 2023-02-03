@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="_15_Spring_Data_JPA" />
         <module name="_14_Spring_with_Maven" />
       </profile>
     </annotationProcessing>
