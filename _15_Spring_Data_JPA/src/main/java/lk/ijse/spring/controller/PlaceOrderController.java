@@ -1,22 +1,11 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.OrdersDTO;
-import lk.ijse.spring.dto.OrderDetailsDTO;
-import lk.ijse.spring.entity.Item;
-import lk.ijse.spring.entity.OrderDetails;
-import lk.ijse.spring.entity.Orders;
-import lk.ijse.spring.repo.ItemRepo;
-import lk.ijse.spring.repo.OrderDetailsRepo;
-import lk.ijse.spring.repo.PlaceOrderRepo;
 import lk.ijse.spring.service.PlaceOrderService;
 import lk.ijse.spring.util.ResponseUtil;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 /**
  * @author : Nimesh Piyumantha
