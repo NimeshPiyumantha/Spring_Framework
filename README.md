@@ -1,7 +1,7 @@
 ﻿# Spring_Framework
 This is a Learning Spring_Framework.
 ###  
-[![wakatime](https://wakatime.com/badge/user/bde2acba-42bd-46e8-a905-d74c6f260407/project/e1b1efe8-a85c-4821-bdb5-469be85a13f7.svg)](https://wakatime.com/badge/user/bde2acba-42bd-46e8-a905-d74c6f260407/project/e1b1efe8-a85c-4821-bdb5-469be85a13f7)
+[![wakatime](https://wakatime.com/badge/github/NimeshPiyumantha/Spring_Framework.svg)](https://wakatime.com/badge/github/NimeshPiyumantha/Spring_Framework)
 ###  
 ![alt text](https://github.com/NimeshPiyumantha/Spring_Framework/blob/master/img/211072724-f65569f4-f61b-46b3-9b63-3aea0235137b.png)
 
