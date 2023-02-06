@@ -1,5 +1,6 @@
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
@@ -63,9 +64,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String customerIdGenerate() {
-        String id = repo.getLastIndex();
-        System.out.println(id);
-        return id;
+    public CustomDTO customerIdGenerate() {
+        CustomDTO customDTO = new CustomDTO(repo.getLastIndex());
+        System.out.println(customDTO);
+        return customDTO;
     }
 }

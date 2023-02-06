@@ -25,7 +25,7 @@ function generateCustomerID() {
         contentType: "application/json",
         dataType: "json",
         success: function (resp) {
-            let id = resp.id;
+            let id = resp.value;
             console.log("id" +id);
             let tempId = parseInt(id.split("-")[1]);
             tempId = tempId + 1;

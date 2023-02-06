@@ -24,7 +24,7 @@ function generateItemID() {
         contentType: "application/json",
         dataType: "json",
         success: function (resp) {
-            let code = resp.code;
+            let code = resp.value;
             let tempId = parseInt(code.split("-")[1]);
             tempId = tempId + 1;
             if (tempId <= 9) {

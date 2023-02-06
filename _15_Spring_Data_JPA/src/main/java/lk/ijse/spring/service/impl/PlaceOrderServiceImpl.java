@@ -1,5 +1,6 @@
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.OrderDetailsDTO;
 import lk.ijse.spring.dto.OrdersDTO;
 import lk.ijse.spring.entity.Item;
@@ -68,9 +69,9 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
     }
 
     @Override
-    public String OrderIdGenerate() {
-        String orderId = repo.getLastIndex();
-        System.out.println(orderId);
-        return orderId;
+    public CustomDTO OrderIdGenerate() {
+        CustomDTO customDTO = new CustomDTO(repo.getLastIndex());
+        System.out.println(customDTO);
+        return customDTO;
     }
 }

@@ -1,5 +1,6 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.service.CustomerService;
 import lk.ijse.spring.util.ResponseUtil;
@@ -55,7 +56,7 @@ public class CustomerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/CustomerIdGenerate")
-    public @ResponseBody String customerIdGenerate() {
+    public @ResponseBody CustomDTO customerIdGenerate() {
         return service.customerIdGenerate();
     }
 }

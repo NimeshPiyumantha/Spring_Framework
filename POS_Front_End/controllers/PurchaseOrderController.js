@@ -24,7 +24,7 @@ function generateOrderID() {
         contentType: "application/json",
         dataType: "json",
         success: function (resp) {
-            let orderId = resp.orderId;
+            let orderId = resp.value;
             let tempId = parseInt(orderId.split("-")[1]);
             tempId = tempId + 1;
             if (tempId <= 9) {

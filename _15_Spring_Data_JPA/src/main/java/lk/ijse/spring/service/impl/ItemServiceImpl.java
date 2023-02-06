@@ -1,5 +1,6 @@
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.ItemDTO;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.repo.ItemRepo;
@@ -65,9 +66,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public String itemIdGenerate() {
-        String code = repo.getLastIndex();
-        System.out.println(code);
-        return code;
+    public CustomDTO itemIdGenerate() {
+        CustomDTO customDTO = new CustomDTO(repo.getLastIndex());
+        System.out.println(customDTO);
+        return customDTO;
     }
 }

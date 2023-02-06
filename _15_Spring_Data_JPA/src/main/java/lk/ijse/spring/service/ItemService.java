@@ -1,5 +1,6 @@
 package lk.ijse.spring.service;
 
+import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.ItemDTO;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,5 +24,5 @@ public interface ItemService {
     ArrayList<ItemDTO> loadAllItem();
 
     @ResponseBody
-    String itemIdGenerate();
+    CustomDTO itemIdGenerate();
 }

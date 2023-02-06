@@ -1,5 +1,6 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.OrdersDTO;
 import lk.ijse.spring.service.PlaceOrderService;
 import lk.ijse.spring.util.ResponseUtil;
@@ -41,7 +42,7 @@ public class PlaceOrderController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/OrderIdGenerate")
-    public @ResponseBody String OrderIdGenerate() {
+    public @ResponseBody CustomDTO OrderIdGenerate() {
         return service.OrderIdGenerate();
     }
 }
