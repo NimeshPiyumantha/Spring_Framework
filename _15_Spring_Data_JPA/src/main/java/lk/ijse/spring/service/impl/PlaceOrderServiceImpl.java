@@ -74,4 +74,11 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
         System.out.println(customDTO);
         return customDTO;
     }
+
+    @Override
+    public CustomDTO getSumOrders() {
+        CustomDTO customDTO = new CustomDTO(repo.getSumOrders());
+        System.out.println(customDTO);
+        return customDTO;
+    }
 }

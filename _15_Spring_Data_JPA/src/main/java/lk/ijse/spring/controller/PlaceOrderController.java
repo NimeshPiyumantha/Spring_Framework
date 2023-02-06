@@ -45,4 +45,10 @@ public class PlaceOrderController {
     public @ResponseBody CustomDTO OrderIdGenerate() {
         return service.OrderIdGenerate();
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/ordersCount")
+    public @ResponseBody CustomDTO getSumOrders() {
+        return service.getSumOrders();
+    }
 }

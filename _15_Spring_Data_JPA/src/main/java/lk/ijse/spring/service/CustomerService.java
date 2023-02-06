@@ -4,6 +4,7 @@ import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,9 @@ public interface CustomerService {
     CustomerDTO searchCusId(String id);
 
     ArrayList<CustomerDTO> loadAllCustomer();
-
+    @ResponseBody
     CustomDTO customerIdGenerate();
+
+    @ResponseBody
+    CustomDTO getSumCustomer();
 }

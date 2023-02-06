@@ -25,4 +25,7 @@ public interface ItemService {
 
     @ResponseBody
     CustomDTO itemIdGenerate();
+
+    @ResponseBody
+    CustomDTO getSumItem();
 }

@@ -69,4 +69,11 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println(customDTO);
         return customDTO;
     }
+
+    @Override
+    public CustomDTO getSumCustomer() {
+        CustomDTO customDTO = new CustomDTO(repo.getSumCustomer());
+        System.out.println(customDTO);
+        return customDTO;
+    }
 }

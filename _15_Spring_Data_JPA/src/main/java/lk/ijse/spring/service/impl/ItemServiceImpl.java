@@ -71,4 +71,11 @@ public class ItemServiceImpl implements ItemService {
         System.out.println(customDTO);
         return customDTO;
     }
+
+    @Override
+    public CustomDTO getSumItem() {
+        CustomDTO customDTO = new CustomDTO(repo.getSumItem());
+        System.out.println(customDTO);
+        return customDTO;
+    }
 }

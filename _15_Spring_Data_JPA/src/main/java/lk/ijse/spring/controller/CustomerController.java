@@ -59,4 +59,11 @@ public class CustomerController {
     public @ResponseBody CustomDTO customerIdGenerate() {
         return service.customerIdGenerate();
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/CustomerCount")
+    public @ResponseBody CustomDTO getSumCustomer() {
+        return service.getSumCustomer();
+    }
+
 }
