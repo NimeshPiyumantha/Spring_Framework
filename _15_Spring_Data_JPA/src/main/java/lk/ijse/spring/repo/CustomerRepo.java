@@ -16,4 +16,6 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     int getSumCustomer();
 
     Customer findCustomerByName(String name);
+
+    Customer findByName(String name);
 }
