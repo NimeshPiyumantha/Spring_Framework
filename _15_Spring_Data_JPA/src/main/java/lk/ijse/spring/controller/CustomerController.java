@@ -57,7 +57,7 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/{name}")
     public ResponseUtil findCustomerByName(@PathVariable String name) {
-        return new ResponseUtil("OK", "Successfully Loaded. :", service.findCustomerByName(name));
+        return new ResponseUtil("OK", "Successfully Loaded. :", service.searchCustomerWithName(name));
     }
 
     @ResponseStatus(HttpStatus.CREATED)

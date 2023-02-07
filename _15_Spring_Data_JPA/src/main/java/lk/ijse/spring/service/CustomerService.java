@@ -29,5 +29,5 @@ public interface CustomerService {
     @ResponseBody
     CustomDTO getSumCustomer();
 
-    CustomerDTO findCustomerByName(String name);
+    CustomerDTO searchCustomerWithName(String name);
 }
