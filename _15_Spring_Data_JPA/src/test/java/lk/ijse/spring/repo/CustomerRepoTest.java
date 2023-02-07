@@ -72,7 +72,7 @@ class CustomerRepoTest {
 
     @Test
     void testAllMethods3() {
-        Customer c1 = repo.findCustomerByNameAndAddress("Danuka Perera", "Colombo");
+        Customer c1 = repo.findCustomerByNameAndAddress("Akila", "Galle");
         System.out.println(c1.toString());
     }
 
@@ -90,10 +90,10 @@ class CustomerRepoTest {
         Customer customer = repo.methodTwo();
         System.out.println(customer.toString());
 
-        Customer customer1 = repo.methodThree("C002","Kushan Hansaka");
+        Customer customer1 = repo.methodThree("C00-002","Akila");
         System.out.println(customer1.toString());
 
-        Customer customer2 = repo.methodFour("C002","Kushan Hansaka");
+        Customer customer2 = repo.methodFour("C00-002","Akila");
         System.out.println(customer2.toString());
 
     }

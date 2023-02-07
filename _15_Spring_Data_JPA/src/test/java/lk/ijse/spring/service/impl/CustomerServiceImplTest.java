@@ -31,13 +31,13 @@ class CustomerServiceImplTest {
     @Test
     void saveCustomer() {
         //valid data test ok
-        CustomerDTO customerDTO = new CustomerDTO("C011","Ramal Wasuka","Galle",1000);
+        CustomerDTO customerDTO = new CustomerDTO("C011","Nimesh","Galle",1000);
         assertDoesNotThrow(() -> {
             service.saveCustomer(customerDTO);
         });
 
         //set invalid data if this throws error
-        CustomerDTO customerDTO2 = new CustomerDTO("C001","Ramal Wasuka","Galle",1000);
+        CustomerDTO customerDTO2 = new CustomerDTO("C001","Nimesh","Galle",1000);
         assertThrows(RuntimeException.class,()->{
             service.saveCustomer(customerDTO2);
         });
