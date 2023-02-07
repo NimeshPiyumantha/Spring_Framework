@@ -30,4 +30,5 @@ public interface CustomerService {
     CustomDTO getSumCustomer();
 
     CustomerDTO searchCustomerWithName(String name);
+
 }
