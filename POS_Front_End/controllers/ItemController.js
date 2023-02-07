@@ -3,7 +3,7 @@
  * @since : 0.1.0
  **/
 
-let baseUrl = "http://localhost:8080/_15_Spring_Data_JPA_war/";
+let baseUrl = "http://localhost:8080/springBoot/";
 loadAllItems();
 /**
  * Item Save
