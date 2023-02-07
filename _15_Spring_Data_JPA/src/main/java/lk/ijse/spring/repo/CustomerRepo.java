@@ -14,4 +14,6 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
 
     @Query(value = "SELECT COUNT(id) FROM Customer", nativeQuery = true)
     int getSumCustomer();
+
+    Customer findCustomerByName(String name);
 }

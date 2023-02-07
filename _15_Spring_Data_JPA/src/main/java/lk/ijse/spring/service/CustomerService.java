@@ -2,6 +2,7 @@ package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.CustomDTO;
 import lk.ijse.spring.dto.CustomerDTO;
+import lk.ijse.spring.entity.Customer;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,4 +28,6 @@ public interface CustomerService {
 
     @ResponseBody
     CustomDTO getSumCustomer();
+
+    CustomerDTO findCustomerByName(String name);
 }

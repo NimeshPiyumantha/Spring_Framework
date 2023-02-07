@@ -55,6 +55,12 @@ public class CustomerController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/{name}")
+    public ResponseUtil findCustomerByName(@PathVariable String name) {
+        return new ResponseUtil("OK", "Successfully Loaded. :", service.findCustomerByName(name));
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/CustomerIdGenerate")
     public @ResponseBody CustomDTO customerIdGenerate() {
         return service.customerIdGenerate();
